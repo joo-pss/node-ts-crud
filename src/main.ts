@@ -1,6 +1,7 @@
 import express from "express";
 import { env } from "./env";
 import { createEvent } from "./routes/create-event";
+import { getAllEvents } from "./routes/get-all-events";
 import { validateBody } from "./routes/middlewares/validate-body";
 import { z } from "zod";
 
@@ -16,5 +17,7 @@ app.post(
   })), 
   createEvent,
 );
+
+app.get("/events", getAllEvents);
 
 app.listen(env.PORT, () => console.log("Server running!"));
