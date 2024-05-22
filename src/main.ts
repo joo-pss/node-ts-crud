@@ -4,6 +4,7 @@ import { createEvent } from "./routes/create-event";
 import { getAllEvents } from "./routes/get-all-events";
 import { getOneEvent } from "./routes/get-one-event";
 import { updateEvent } from "./routes/update-event";
+import { deleteEvent } from "./routes/delete-event";
 import { validateBody } from "./routes/middlewares/validate-body";
 import { z } from "zod";
 
@@ -32,5 +33,7 @@ app.patch(
   })),
   updateEvent,
 );
+
+app.delete("/events/:id", deleteEvent)
 
 app.listen(env.PORT, () => console.log("Server running!"));
